@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36051db2f328443ea9ba0ab715f38be9" Name="Diagram1">
+        <EntityTypeShape EntityType="FINALModel.appointment" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.AspNetRole" Width="1.5" PointX="8.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.AspNetUser" Width="1.5" PointX="11" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.clinic_affaliation" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.Clinic_request" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.clinic_view" Width="1.5" PointX="9.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.doctor" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.doctor_avaliability" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.doctor_scedule" Width="1.5" PointX="9.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.doctor_specialization" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.hospital_affaliation" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.Hospital_request" Width="1.5" PointX="11.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.hospital_view" Width="1.5" PointX="11.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.office" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.patient" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.review" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FINALModel.specialization" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FINALModel.FK_appointment_office" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_appointment_patient" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_clinic_affaliation_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_office_clinic_affaliation" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_doctor_specialization_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_hospital_affaliation_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_office_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_review_doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_doctor_avaliability_office" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_doctor_specialization_specialization" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_office_hospital_affaliation" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.FK_review_patient" ManuallyRouted="false" />
+        <AssociationConnector Association="FINALModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

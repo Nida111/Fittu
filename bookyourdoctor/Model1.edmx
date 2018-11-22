@@ -1,0 +1,1266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FINALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="appointment">
+          <Key>
+            <PropertyRef Name="appointment_id" />
+          </Key>
+          <Property Name="appointment_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="patient_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="office_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="appointment_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clinic_affaliation">
+          <Key>
+            <PropertyRef Name="clinic_id" />
+          </Key>
+          <Property Name="clinic_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Clinic_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clinic_Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="doctor_id" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clinic_request">
+          <Key>
+            <PropertyRef Name="c_req_id" />
+          </Key>
+          <Property Name="c_req_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Clinic_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="patient_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="clinic_day" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Accept" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Reject" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clinic_view">
+          <Key>
+            <PropertyRef Name="c_view_id" />
+          </Key>
+          <Property Name="c_view_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="clinic_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="patient_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Clinic_day" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doctor">
+          <Key>
+            <PropertyRef Name="doctor_id" />
+          </Key>
+          <Property Name="doctor_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_of_birth" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MBBS_Code" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="confirm_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="clinic_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_address" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="clinic_address" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="specialization" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="practising_years" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doctor_avaliability">
+          <Key>
+            <PropertyRef Name="avaliability_id" />
+          </Key>
+          <Property Name="avaliability_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="office_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="day_of_week" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_time" Type="datetime" Nullable="false" />
+          <Property Name="end_time" Type="datetime" Nullable="false" />
+          <Property Name="is_avalible" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doctor_scedule">
+          <Key>
+            <PropertyRef Name="scedual_id" />
+          </Key>
+          <Property Name="scedual_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="clinic_time" Type="datetime" Nullable="false" />
+          <Property Name="hospital_time" Type="datetime" Nullable="false" />
+          <Property Name="is_avalible" Type="nvarchar" MaxLength="50" />
+          <Property Name="Clinic_day" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="hospial_day" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Days" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doctor_specialization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="doctor_id" Type="nchar" MaxLength="10" />
+          <Property Name="specialization_id" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="hospital_affaliation">
+          <Key>
+            <PropertyRef Name="hospital_id" />
+          </Key>
+          <Property Name="hospital_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="doctor_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hospital_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hospital_request">
+          <Key>
+            <PropertyRef Name="h_req_id" />
+          </Key>
+          <Property Name="h_req_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Hospital_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="patient_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Hospital_day" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Accept" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Reject" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hospital_view">
+          <Key>
+            <PropertyRef Name="h_view_id" />
+          </Key>
+          <Property Name="h_view_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="hospital_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="patient_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Hosspital_day" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="office">
+          <Key>
+            <PropertyRef Name="office_id" />
+          </Key>
+          <Property Name="office_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="doctor_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="hospital_affaliation_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="clinic_affaliation_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="consultant_fee" Type="int" Nullable="false" />
+          <Property Name="time_slot" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="patient_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="confirm_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact_number" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="patient_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="doctor_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="review" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="review_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="specialization">
+          <Key>
+            <PropertyRef Name="specialization_id" />
+          </Key>
+          <Property Name="specialization_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_appointment_office">
+          <End Role="office" Type="Self.office" Multiplicity="1" />
+          <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="office">
+              <PropertyRef Name="office_id" />
+            </Principal>
+            <Dependent Role="appointment">
+              <PropertyRef Name="office_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_appointment_patient">
+          <End Role="patient" Type="Self.patient" Multiplicity="1" />
+          <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="patient_id" />
+            </Principal>
+            <Dependent Role="appointment">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clinic_affaliation_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="clinic_affaliation" Type="Self.clinic_affaliation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="clinic_affaliation">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctor_avaliability_office">
+          <End Role="office" Type="Self.office" Multiplicity="1" />
+          <End Role="doctor_avaliability" Type="Self.doctor_avaliability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="office">
+              <PropertyRef Name="office_id" />
+            </Principal>
+            <Dependent Role="doctor_avaliability">
+              <PropertyRef Name="office_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctor_specialization_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="0..1" />
+          <End Role="doctor_specialization" Type="Self.doctor_specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="doctor_specialization">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctor_specialization_specialization">
+          <End Role="specialization" Type="Self.specialization" Multiplicity="0..1" />
+          <End Role="doctor_specialization" Type="Self.doctor_specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="specialization">
+              <PropertyRef Name="specialization_id" />
+            </Principal>
+            <Dependent Role="doctor_specialization">
+              <PropertyRef Name="specialization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hospital_affaliation_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="hospital_affaliation" Type="Self.hospital_affaliation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="hospital_affaliation">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_office_clinic_affaliation">
+          <End Role="clinic_affaliation" Type="Self.clinic_affaliation" Multiplicity="1" />
+          <End Role="office" Type="Self.office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clinic_affaliation">
+              <PropertyRef Name="clinic_id" />
+            </Principal>
+            <Dependent Role="office">
+              <PropertyRef Name="clinic_affaliation_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_office_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="office" Type="Self.office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="office">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_office_hospital_affaliation">
+          <End Role="hospital_affaliation" Type="Self.hospital_affaliation" Multiplicity="1" />
+          <End Role="office" Type="Self.office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospital_affaliation">
+              <PropertyRef Name="hospital_id" />
+            </Principal>
+            <Dependent Role="office">
+              <PropertyRef Name="hospital_affaliation_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_review_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_review_patient">
+          <End Role="patient" Type="Self.patient" Multiplicity="1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="patient_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FINALModelStoreContainer">
+          <EntitySet Name="appointment" EntityType="Self.appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clinic_affaliation" EntityType="Self.clinic_affaliation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clinic_request" EntityType="Self.Clinic_request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clinic_view" EntityType="Self.clinic_view" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doctor" EntityType="Self.doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doctor_avaliability" EntityType="Self.doctor_avaliability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doctor_scedule" EntityType="Self.doctor_scedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doctor_specialization" EntityType="Self.doctor_specialization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hospital_affaliation" EntityType="Self.hospital_affaliation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hospital_request" EntityType="Self.Hospital_request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hospital_view" EntityType="Self.hospital_view" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="office" EntityType="Self.office" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="review" EntityType="Self.review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="specialization" EntityType="Self.specialization" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_appointment_office" Association="Self.FK_appointment_office">
+            <End Role="office" EntitySet="office" />
+            <End Role="appointment" EntitySet="appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_appointment_patient" Association="Self.FK_appointment_patient">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="appointment" EntitySet="appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clinic_affaliation_doctor" Association="Self.FK_clinic_affaliation_doctor">
+            <End Role="doctor" EntitySet="doctor" />
+            <End Role="clinic_affaliation" EntitySet="clinic_affaliation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctor_avaliability_office" Association="Self.FK_doctor_avaliability_office">
+            <End Role="office" EntitySet="office" />
+            <End Role="doctor_avaliability" EntitySet="doctor_avaliability" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctor_specialization_doctor" Association="Self.FK_doctor_specialization_doctor">
+            <End Role="doctor" EntitySet="doctor" />
+            <End Role="doctor_specialization" EntitySet="doctor_specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctor_specialization_specialization" Association="Self.FK_doctor_specialization_specialization">
+            <End Role="specialization" EntitySet="specialization" />
+            <End Role="doctor_specialization" EntitySet="doctor_specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hospital_affaliation_doctor" Association="Self.FK_hospital_affaliation_doctor">
+            <End Role="doctor" EntitySet="doctor" />
+            <End Role="hospital_affaliation" EntitySet="hospital_affaliation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_office_clinic_affaliation" Association="Self.FK_office_clinic_affaliation">
+            <End Role="clinic_affaliation" EntitySet="clinic_affaliation" />
+            <End Role="office" EntitySet="office" />
+          </AssociationSet>
+          <AssociationSet Name="FK_office_doctor" Association="Self.FK_office_doctor">
+            <End Role="doctor" EntitySet="doctor" />
+            <End Role="office" EntitySet="office" />
+          </AssociationSet>
+          <AssociationSet Name="FK_office_hospital_affaliation" Association="Self.FK_office_hospital_affaliation">
+            <End Role="hospital_affaliation" EntitySet="hospital_affaliation" />
+            <End Role="office" EntitySet="office" />
+          </AssociationSet>
+          <AssociationSet Name="FK_review_doctor" Association="Self.FK_review_doctor">
+            <End Role="doctor" EntitySet="doctor" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_review_patient" Association="Self.FK_review_patient">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FINALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="appointment">
+          <Key>
+            <PropertyRef Name="appointment_id" />
+          </Key>
+          <Property Name="appointment_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="patient_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="office_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="appointment_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="office" Relationship="Self.FK_appointment_office" FromRole="appointment" ToRole="office" />
+          <NavigationProperty Name="patient" Relationship="Self.FK_appointment_patient" FromRole="appointment" ToRole="patient" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="clinic_affaliation">
+          <Key>
+            <PropertyRef Name="clinic_id" />
+          </Key>
+          <Property Name="clinic_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Clinic_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Clinic_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="doctor_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="doctor" Relationship="Self.FK_clinic_affaliation_doctor" FromRole="clinic_affaliation" ToRole="doctor" />
+          <NavigationProperty Name="offices" Relationship="Self.FK_office_clinic_affaliation" FromRole="clinic_affaliation" ToRole="office" />
+        </EntityType>
+        <EntityType Name="Clinic_request">
+          <Key>
+            <PropertyRef Name="c_req_id" />
+          </Key>
+          <Property Name="c_req_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Clinic_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="patient_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="clinic_day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Accept" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Reject" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clinic_view">
+          <Key>
+            <PropertyRef Name="c_view_id" />
+          </Key>
+          <Property Name="c_view_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="clinic_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="patient_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Clinic_day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doctor">
+          <Key>
+            <PropertyRef Name="doctor_id" />
+          </Key>
+          <Property Name="doctor_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_of_birth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MBBS_Code" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="confirm_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="clinic_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hospital_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="clinic_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="practising_years" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="clinic_affaliation" Relationship="Self.FK_clinic_affaliation_doctor" FromRole="doctor" ToRole="clinic_affaliation" />
+          <NavigationProperty Name="doctor_specialization" Relationship="Self.FK_doctor_specialization_doctor" FromRole="doctor" ToRole="doctor_specialization" />
+          <NavigationProperty Name="hospital_affaliation" Relationship="Self.FK_hospital_affaliation_doctor" FromRole="doctor" ToRole="hospital_affaliation" />
+          <NavigationProperty Name="offices" Relationship="Self.FK_office_doctor" FromRole="doctor" ToRole="office" />
+          <NavigationProperty Name="reviews" Relationship="Self.FK_review_doctor" FromRole="doctor" ToRole="review" />
+        </EntityType>
+        <EntityType Name="doctor_avaliability">
+          <Key>
+            <PropertyRef Name="avaliability_id" />
+          </Key>
+          <Property Name="avaliability_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="office_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="day_of_week" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="is_avalible" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="office" Relationship="Self.FK_doctor_avaliability_office" FromRole="doctor_avaliability" ToRole="office" />
+        </EntityType>
+        <EntityType Name="doctor_scedule">
+          <Key>
+            <PropertyRef Name="scedual_id" />
+          </Key>
+          <Property Name="scedual_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="clinic_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hospital_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="is_avalible" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Clinic_day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="hospial_day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Days" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doctor_specialization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="doctor_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="specialization_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="doctor" Relationship="Self.FK_doctor_specialization_doctor" FromRole="doctor_specialization" ToRole="doctor" />
+          <NavigationProperty Name="specialization" Relationship="Self.FK_doctor_specialization_specialization" FromRole="doctor_specialization" ToRole="specialization" />
+        </EntityType>
+        <EntityType Name="hospital_affaliation">
+          <Key>
+            <PropertyRef Name="hospital_id" />
+          </Key>
+          <Property Name="hospital_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="doctor_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hospital_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="doctor" Relationship="Self.FK_hospital_affaliation_doctor" FromRole="hospital_affaliation" ToRole="doctor" />
+          <NavigationProperty Name="offices" Relationship="Self.FK_office_hospital_affaliation" FromRole="hospital_affaliation" ToRole="office" />
+        </EntityType>
+        <EntityType Name="Hospital_request">
+          <Key>
+            <PropertyRef Name="h_req_id" />
+          </Key>
+          <Property Name="h_req_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Hospital_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="patient_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Hospital_day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Accept" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Reject" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hospital_view">
+          <Key>
+            <PropertyRef Name="h_view_id" />
+          </Key>
+          <Property Name="h_view_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="hospital_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="patient_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Hosspital_day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="office">
+          <Key>
+            <PropertyRef Name="office_id" />
+          </Key>
+          <Property Name="office_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="doctor_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="hospital_affaliation_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="clinic_affaliation_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="consultant_fee" Type="Int32" Nullable="false" />
+          <Property Name="time_slot" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK_appointment_office" FromRole="office" ToRole="appointment" />
+          <NavigationProperty Name="clinic_affaliation" Relationship="Self.FK_office_clinic_affaliation" FromRole="office" ToRole="clinic_affaliation" />
+          <NavigationProperty Name="doctor" Relationship="Self.FK_office_doctor" FromRole="office" ToRole="doctor" />
+          <NavigationProperty Name="doctor_avaliability" Relationship="Self.FK_doctor_avaliability_office" FromRole="office" ToRole="doctor_avaliability" />
+          <NavigationProperty Name="hospital_affaliation" Relationship="Self.FK_office_hospital_affaliation" FromRole="office" ToRole="hospital_affaliation" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="patient_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="confirm_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK_appointment_patient" FromRole="patient" ToRole="appointment" />
+          <NavigationProperty Name="reviews" Relationship="Self.FK_review_patient" FromRole="patient" ToRole="review" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="patient_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="doctor_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="review1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="review_time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="doctor" Relationship="Self.FK_review_doctor" FromRole="review" ToRole="doctor" />
+          <NavigationProperty Name="patient" Relationship="Self.FK_review_patient" FromRole="review" ToRole="patient" />
+        </EntityType>
+        <EntityType Name="specialization">
+          <Key>
+            <PropertyRef Name="specialization_id" />
+          </Key>
+          <Property Name="specialization_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="doctor_specialization" Relationship="Self.FK_doctor_specialization_specialization" FromRole="specialization" ToRole="doctor_specialization" />
+        </EntityType>
+        <Association Name="FK_appointment_office">
+          <End Role="office" Type="Self.office" Multiplicity="1" />
+          <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="office">
+              <PropertyRef Name="office_id" />
+            </Principal>
+            <Dependent Role="appointment">
+              <PropertyRef Name="office_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_appointment_patient">
+          <End Role="patient" Type="Self.patient" Multiplicity="1" />
+          <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="patient_id" />
+            </Principal>
+            <Dependent Role="appointment">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clinic_affaliation_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="clinic_affaliation" Type="Self.clinic_affaliation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="clinic_affaliation">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_office_clinic_affaliation">
+          <End Role="clinic_affaliation" Type="Self.clinic_affaliation" Multiplicity="1" />
+          <End Role="office" Type="Self.office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clinic_affaliation">
+              <PropertyRef Name="clinic_id" />
+            </Principal>
+            <Dependent Role="office">
+              <PropertyRef Name="clinic_affaliation_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctor_specialization_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="0..1" />
+          <End Role="doctor_specialization" Type="Self.doctor_specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="doctor_specialization">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hospital_affaliation_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="hospital_affaliation" Type="Self.hospital_affaliation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="hospital_affaliation">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_office_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="office" Type="Self.office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="office">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_review_doctor">
+          <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctor">
+              <PropertyRef Name="doctor_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctor_avaliability_office">
+          <End Role="office" Type="Self.office" Multiplicity="1" />
+          <End Role="doctor_avaliability" Type="Self.doctor_avaliability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="office">
+              <PropertyRef Name="office_id" />
+            </Principal>
+            <Dependent Role="doctor_avaliability">
+              <PropertyRef Name="office_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctor_specialization_specialization">
+          <End Role="specialization" Type="Self.specialization" Multiplicity="0..1" />
+          <End Role="doctor_specialization" Type="Self.doctor_specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="specialization">
+              <PropertyRef Name="specialization_id" />
+            </Principal>
+            <Dependent Role="doctor_specialization">
+              <PropertyRef Name="specialization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_office_hospital_affaliation">
+          <End Role="hospital_affaliation" Type="Self.hospital_affaliation" Multiplicity="1" />
+          <End Role="office" Type="Self.office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospital_affaliation">
+              <PropertyRef Name="hospital_id" />
+            </Principal>
+            <Dependent Role="office">
+              <PropertyRef Name="hospital_affaliation_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_review_patient">
+          <End Role="patient" Type="Self.patient" Multiplicity="1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="patient_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="FINALEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="appointments" EntityType="Self.appointment" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="clinic_affaliation" EntityType="Self.clinic_affaliation" />
+          <EntitySet Name="Clinic_request" EntityType="Self.Clinic_request" />
+          <EntitySet Name="clinic_view" EntityType="Self.clinic_view" />
+          <EntitySet Name="doctors" EntityType="Self.doctor" />
+          <EntitySet Name="doctor_avaliability" EntityType="Self.doctor_avaliability" />
+          <EntitySet Name="doctor_scedule" EntityType="Self.doctor_scedule" />
+          <EntitySet Name="doctor_specialization" EntityType="Self.doctor_specialization" />
+          <EntitySet Name="hospital_affaliation" EntityType="Self.hospital_affaliation" />
+          <EntitySet Name="Hospital_request" EntityType="Self.Hospital_request" />
+          <EntitySet Name="hospital_view" EntityType="Self.hospital_view" />
+          <EntitySet Name="offices" EntityType="Self.office" />
+          <EntitySet Name="patients" EntityType="Self.patient" />
+          <EntitySet Name="reviews" EntityType="Self.review" />
+          <EntitySet Name="specializations" EntityType="Self.specialization" />
+          <AssociationSet Name="FK_appointment_office" Association="Self.FK_appointment_office">
+            <End Role="office" EntitySet="offices" />
+            <End Role="appointment" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_appointment_patient" Association="Self.FK_appointment_patient">
+            <End Role="patient" EntitySet="patients" />
+            <End Role="appointment" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clinic_affaliation_doctor" Association="Self.FK_clinic_affaliation_doctor">
+            <End Role="doctor" EntitySet="doctors" />
+            <End Role="clinic_affaliation" EntitySet="clinic_affaliation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_office_clinic_affaliation" Association="Self.FK_office_clinic_affaliation">
+            <End Role="clinic_affaliation" EntitySet="clinic_affaliation" />
+            <End Role="office" EntitySet="offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctor_specialization_doctor" Association="Self.FK_doctor_specialization_doctor">
+            <End Role="doctor" EntitySet="doctors" />
+            <End Role="doctor_specialization" EntitySet="doctor_specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hospital_affaliation_doctor" Association="Self.FK_hospital_affaliation_doctor">
+            <End Role="doctor" EntitySet="doctors" />
+            <End Role="hospital_affaliation" EntitySet="hospital_affaliation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_office_doctor" Association="Self.FK_office_doctor">
+            <End Role="doctor" EntitySet="doctors" />
+            <End Role="office" EntitySet="offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_review_doctor" Association="Self.FK_review_doctor">
+            <End Role="doctor" EntitySet="doctors" />
+            <End Role="review" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctor_avaliability_office" Association="Self.FK_doctor_avaliability_office">
+            <End Role="office" EntitySet="offices" />
+            <End Role="doctor_avaliability" EntitySet="doctor_avaliability" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctor_specialization_specialization" Association="Self.FK_doctor_specialization_specialization">
+            <End Role="specialization" EntitySet="specializations" />
+            <End Role="doctor_specialization" EntitySet="doctor_specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_office_hospital_affaliation" Association="Self.FK_office_hospital_affaliation">
+            <End Role="hospital_affaliation" EntitySet="hospital_affaliation" />
+            <End Role="office" EntitySet="offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_review_patient" Association="Self.FK_review_patient">
+            <End Role="patient" EntitySet="patients" />
+            <End Role="review" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FINALModelStoreContainer" CdmEntityContainer="FINALEntities">
+          <EntitySetMapping Name="appointments">
+            <EntityTypeMapping TypeName="FINALModel.appointment">
+              <MappingFragment StoreEntitySet="appointment">
+                <ScalarProperty Name="appointment_id" ColumnName="appointment_id" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="office_id" ColumnName="office_id" />
+                <ScalarProperty Name="appointment_datetime" ColumnName="appointment_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="FINALModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="FINALModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="FINALModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="FINALModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clinic_affaliation">
+            <EntityTypeMapping TypeName="FINALModel.clinic_affaliation">
+              <MappingFragment StoreEntitySet="clinic_affaliation">
+                <ScalarProperty Name="clinic_id" ColumnName="clinic_id" />
+                <ScalarProperty Name="Clinic_name" ColumnName="Clinic_name" />
+                <ScalarProperty Name="Clinic_Address" ColumnName="Clinic_Address" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clinic_request">
+            <EntityTypeMapping TypeName="FINALModel.Clinic_request">
+              <MappingFragment StoreEntitySet="Clinic_request">
+                <ScalarProperty Name="c_req_id" ColumnName="c_req_id" />
+                <ScalarProperty Name="Clinic_time" ColumnName="Clinic_time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="clinic_day" ColumnName="clinic_day" />
+                <ScalarProperty Name="Accept" ColumnName="Accept" />
+                <ScalarProperty Name="Reject" ColumnName="Reject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clinic_view">
+            <EntityTypeMapping TypeName="FINALModel.clinic_view">
+              <MappingFragment StoreEntitySet="clinic_view">
+                <ScalarProperty Name="c_view_id" ColumnName="c_view_id" />
+                <ScalarProperty Name="clinic_time" ColumnName="clinic_time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="Clinic_day" ColumnName="Clinic_day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doctors">
+            <EntityTypeMapping TypeName="FINALModel.doctor">
+              <MappingFragment StoreEntitySet="doctor">
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="MBBS_Code" ColumnName="MBBS_Code" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="confirm_password" ColumnName="confirm_password" />
+                <ScalarProperty Name="clinic_name" ColumnName="clinic_name" />
+                <ScalarProperty Name="hospital_address" ColumnName="hospital_address" />
+                <ScalarProperty Name="hospital_name" ColumnName="hospital_name" />
+                <ScalarProperty Name="clinic_address" ColumnName="clinic_address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="specialization" ColumnName="specialization" />
+                <ScalarProperty Name="practising_years" ColumnName="practising_years" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doctor_avaliability">
+            <EntityTypeMapping TypeName="FINALModel.doctor_avaliability">
+              <MappingFragment StoreEntitySet="doctor_avaliability">
+                <ScalarProperty Name="avaliability_id" ColumnName="avaliability_id" />
+                <ScalarProperty Name="office_id" ColumnName="office_id" />
+                <ScalarProperty Name="day_of_week" ColumnName="day_of_week" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="is_avalible" ColumnName="is_avalible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doctor_scedule">
+            <EntityTypeMapping TypeName="FINALModel.doctor_scedule">
+              <MappingFragment StoreEntitySet="doctor_scedule">
+                <ScalarProperty Name="scedual_id" ColumnName="scedual_id" />
+                <ScalarProperty Name="clinic_time" ColumnName="clinic_time" />
+                <ScalarProperty Name="hospital_time" ColumnName="hospital_time" />
+                <ScalarProperty Name="is_avalible" ColumnName="is_avalible" />
+                <ScalarProperty Name="Clinic_day" ColumnName="Clinic_day" />
+                <ScalarProperty Name="hospial_day" ColumnName="hospial_day" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doctor_specialization">
+            <EntityTypeMapping TypeName="FINALModel.doctor_specialization">
+              <MappingFragment StoreEntitySet="doctor_specialization">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="specialization_id" ColumnName="specialization_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hospital_affaliation">
+            <EntityTypeMapping TypeName="FINALModel.hospital_affaliation">
+              <MappingFragment StoreEntitySet="hospital_affaliation">
+                <ScalarProperty Name="hospital_id" ColumnName="hospital_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="Hospital_Address" ColumnName="Hospital_Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hospital_request">
+            <EntityTypeMapping TypeName="FINALModel.Hospital_request">
+              <MappingFragment StoreEntitySet="Hospital_request">
+                <ScalarProperty Name="h_req_id" ColumnName="h_req_id" />
+                <ScalarProperty Name="Hospital_time" ColumnName="Hospital_time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="Hospital_day" ColumnName="Hospital_day" />
+                <ScalarProperty Name="Accept" ColumnName="Accept" />
+                <ScalarProperty Name="Reject" ColumnName="Reject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hospital_view">
+            <EntityTypeMapping TypeName="FINALModel.hospital_view">
+              <MappingFragment StoreEntitySet="hospital_view">
+                <ScalarProperty Name="h_view_id" ColumnName="h_view_id" />
+                <ScalarProperty Name="hospital_time" ColumnName="hospital_time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="Hosspital_day" ColumnName="Hosspital_day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="offices">
+            <EntityTypeMapping TypeName="FINALModel.office">
+              <MappingFragment StoreEntitySet="office">
+                <ScalarProperty Name="office_id" ColumnName="office_id" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="hospital_affaliation_id" ColumnName="hospital_affaliation_id" />
+                <ScalarProperty Name="clinic_affaliation_id" ColumnName="clinic_affaliation_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="consultant_fee" ColumnName="consultant_fee" />
+                <ScalarProperty Name="time_slot" ColumnName="time_slot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patients">
+            <EntityTypeMapping TypeName="FINALModel.patient">
+              <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="confirm_password" ColumnName="confirm_password" />
+                <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reviews">
+            <EntityTypeMapping TypeName="FINALModel.review">
+              <MappingFragment StoreEntitySet="review">
+                <ScalarProperty Name="review_id" ColumnName="review_id" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="review1" ColumnName="review" />
+                <ScalarProperty Name="review_time" ColumnName="review_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="specializations">
+            <EntityTypeMapping TypeName="FINALModel.specialization">
+              <MappingFragment StoreEntitySet="specialization">
+                <ScalarProperty Name="specialization_id" ColumnName="specialization_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="FINALModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

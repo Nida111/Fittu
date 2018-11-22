@@ -1,0 +1,61 @@
+﻿@model IEnumerable<bookyourdoctor.Clinic_request>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinic_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patient_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clinic_day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reject)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clinic_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.patient_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clinic_day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reject)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.c_req_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.c_req_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.c_req_id })
+        </td>
+    </tr>
+}
+
+</table>
